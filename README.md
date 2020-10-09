@@ -1,16 +1,13 @@
-### Hi there 👋
+### Hello, I'm Fatih —
 
-<!--
-**MFatihMAR/MFatihMAR** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A Game Networking Specialist based in London, UK.
 
-Here are some ideas to get you started:
+Working as Senior Software Engineer (Netcode) at Unity Technologies.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Interested in Network Engineering, Distributed Systems and Game Development.
+
+![](https://mfatihmar.herokuapp.com/about-pixel.gif)
+
+[LinkedIn →](https://linkedin.com/in/mfatihmar)
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+[GitHub →](https://github.com/mfatihmar)
