@@ -1,6 +1,6 @@
 ### Hello, I'm Fatih —
 
-Senior Software Engineer (Netcode Architect) at Unity Technologies.
+Senior Software Engineer (Netcode Systems Architect) at Unity Technologies.
 
 Interested in Network Engineering, Distributed Systems and Game Development.
 
