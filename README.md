@@ -1,7 +1,6 @@
 ### Hello, I'm Fatih —
 
-Specialized in multiplayer networking and online services (ex-Unity, ex-AAA).
+Specialized in multiplayer networking and online services.
 
-[![Twitter](icons/twitter.svg)](https://twitter.com/ThusSpokeNomad)
-[![YouTube](icons/youtube.svg)](https://youtube.com/@ThusSpokeNomad)
 [![LinkedIn](icons/linkedin.svg)](https://linkedin.com/in/ThusSpokeNomad)
+[![YouTube](icons/youtube.svg)](https://youtube.com/@ThusSpokeNomad)
