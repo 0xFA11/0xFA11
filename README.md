@@ -1,4 +1,4 @@
-### Hello, I'm Fati —
+### Hello, I'm Fatih —
 
 Specialized in multiplayer networking and online services, interested in distributed systems.
 
