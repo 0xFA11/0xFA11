@@ -22,4 +22,5 @@ jobs:
       - name: ${{ matrix.repo }}
         run: gh repo sync ${{ github.repository_owner }}/${{ matrix.repo }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
