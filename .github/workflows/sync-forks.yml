@@ -1,6 +1,7 @@
 on:
   workflow_dispatch:
   push:
+    branches: [$default-branch]
     paths: [.github/workflows/sync-forks.yml]
 
 concurrency:
@@ -13,7 +14,9 @@ jobs:
     strategy:
       matrix:
         repo: [test, foo, bar]
-      fail-fast: true
+      fail-fast: false
     steps:
       - name: ${{ matrix.repo }}
         run: gh repo sync ${{ github.repository_owner }}/${{ matrix.repo }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
