@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"
   push:
-    branches: [$default-branch]
     paths: [.github/workflows/auto-sync-forks.yml]
 
 concurrency:
@@ -13,6 +12,7 @@ concurrency:
 
 jobs:
   sync:
+    if: github.ref_name == github.event.repository.default_branch
     name: ${{ matrix.repo }}
     runs-on: ubuntu-latest
     permissions:
