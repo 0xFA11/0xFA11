@@ -1,0 +1,49 @@
+name: Auto Sync Forks
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [$default-branch]
+    paths: [.github/workflows/auto-sync-forks.yml]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: ${{ matrix.repo }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        repo: [kcp]
+      fail-fast: false
+    env:
+      OWNER: ${{ github.repository_owner }}
+      TARGET_REPO: ${{ matrix.repo }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - id: info
+        run: |
+          repo_data=$(curl -sf -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$OWNER/$TARGET_REPO")
+          echo "target_is_fork=$(echo "$repo_data" | jq -r '.fork')" >> "$GITHUB_OUTPUT"
+          echo "target_default_branch=$(echo "$repo_data" | jq -r '.default_branch')" >> "$GITHUB_OUTPUT"
+          echo "parent_clone_url=$(echo "$repo_data" | jq -r '.parent.clone_url')" >> "$GITHUB_OUTPUT"
+          echo "parent_default_branch=$(echo "$repo_data" | jq -r '.parent.default_branch')" >> "$GITHUB_OUTPUT"
+
+      - if: steps.info.outputs.target_is_fork != 'true'
+        run: exit 1
+
+      - uses: actions/checkout@v6
+        with:
+          repository: ${{ env.OWNER }}/${{ env.TARGET_REPO }}
+          token: ${{ secrets.GH_TOKEN }}
+          ref: ${{ steps.info.outputs.target_default_branch }}
+
+      - run: git remote add upstream ${{ steps.info.outputs.parent_clone_url }}
+      - run: git fetch upstream ${{ steps.info.outputs.parent_default_branch }}
+      - run: git reset --hard upstream/${{ steps.info.outputs.parent_default_branch }}
+      - run: git push origin ${{ steps.info.outputs.target_default_branch }}
