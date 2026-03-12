@@ -2,7 +2,7 @@ name: Auto Sync Forks
 on:
   workflow_dispatch: {}
   push:
-    # branches: [$default-branch]
+    branches: [$default-branch]
     paths: [.github/workflows/auto-sync-forks.yml]
 
 concurrency:
