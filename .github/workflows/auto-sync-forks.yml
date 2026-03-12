@@ -12,6 +12,8 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         repo: [test, foo, bar]
