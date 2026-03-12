@@ -19,7 +19,14 @@ jobs:
       contents: write
     strategy:
       matrix:
-        repo: [kcp]
+        repo:
+          - kcp
+          - xdp
+          - udp
+          - fps
+          - ddos
+          - matchmaker
+          - af_xdp
       fail-fast: false
     env:
       OWNER: ${{ github.repository_owner }}
