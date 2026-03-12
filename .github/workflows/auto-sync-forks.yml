@@ -15,18 +15,21 @@ jobs:
     if: github.ref_name == github.event.repository.default_branch
     name: ${{ matrix.repo }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     strategy:
       matrix:
         repo:
           - kcp
-          - xdp
-          - udp
-          - fps
-          - ddos
-          - matchmaker
-          - af_xdp
+          - gf-xdp
+          - gf-udp
+          - gf-fps
+          - gf-ddos
+          - gf-matchmaker
+          - gf-af_xdp
+          - nn-unreal
+          - nn-hydrogen
+          - nn-proton
+          - nn-protect
+          - nn-next
       fail-fast: false
     env:
       OWNER: ${{ github.repository_owner }}
