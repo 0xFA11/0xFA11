@@ -1,6 +1,6 @@
 name: Auto Sync Forks
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
   push:
     # branches: [$default-branch]
     paths: [.github/workflows/auto-sync-forks.yml]
