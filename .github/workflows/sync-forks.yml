@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/sync-forks.yml]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: [test, foo, bar]
+      fail-fast: true
+    steps:
+      - name: ${{ matrix.repo }}
+        run: gh repo sync ${{ github.repository_owner }}/${{ matrix.repo }}
