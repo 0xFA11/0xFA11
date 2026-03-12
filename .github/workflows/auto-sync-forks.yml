@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [$default-branch]
-    paths: [.github/workflows/sync-forks.yml]
+    paths: [.github/workflows/auto-sync-forks.yml]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
