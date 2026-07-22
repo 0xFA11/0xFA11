@@ -30,6 +30,10 @@ jobs:
           - nn-proton
           - nn-protect
           - nn-next
+          - mb-yojimbo
+          - mb-netcode
+          - mb-reliable
+          - mb-serialize
       fail-fast: false
     env:
       OWNER: ${{ github.repository_owner }}
